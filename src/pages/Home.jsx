@@ -1,5 +1,6 @@
 import "../styles/Home.css";
 import Navbar from "../components/Navbar";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -12,7 +13,7 @@ const Home = () => {
           <button className="cta-button">Check this out</button>
         </div>
       </header>
-      
+
       <section className="features-section">
         <h2>Popular camlet features have made the leap to credit karma to help you grow your mind</h2>
         <div className="feature">
@@ -34,18 +35,16 @@ const Home = () => {
         <div className="footer-section">
           <h4>Explore</h4>
           <ul>
-            <li>Home</li>
-            <li>Learn More</li>
-            <li>What You Get</li>
-            <li>Camlet Way</li>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/camlet-way">Camlet Way</Link></li>
+            <li><Link to="/about-us">About Us</Link></li>
           </ul>
         </div>
         <div className="footer-section">
           <h4>Get Started</h4>
           <ul>
-            <li>Sign-Up</li>
-            <li>Login</li>
-            <li>Camlet Way</li>
+            <li><Link to="/signup">Sign-Up</Link></li>
+            <li><Link to="/login">Login</Link></li>
           </ul>
         </div>
         <div className="footer-section">
