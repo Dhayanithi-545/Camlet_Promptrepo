@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <div className="home-container">
-      <Navbar />
+      {/* <Navbar /> */}
       <header className="hero-section">
         <div className="hero-content">
           <h1>Camlet has been reimagined with credit karma</h1>
@@ -38,6 +38,7 @@ const Home = () => {
             <li><Link to="/">Home</Link></li>
             <li><Link to="/camlet-way">Camlet Way</Link></li>
             <li><Link to="/about-us">About Us</Link></li>
+            <li><Link to="/contact">Contact Us</Link></li>
           </ul>
         </div>
         <div className="footer-section">
