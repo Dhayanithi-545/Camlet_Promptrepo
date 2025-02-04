@@ -10,7 +10,7 @@ Currently, two official plugins are available:
 
 project-root/
 │── public/                     # Static assets
-│── src/                        # Main source code
+│── src/                         # Main source code
 │   │── assets/                 # Images, icons, fonts
 │   │── components/             # Reusable components
 │   │   │── Navbar.jsx          # Navigation bar component
@@ -22,7 +22,7 @@ project-root/
 │   │   │── Contact.jsx         # Contact Us page
 │   │   │── Login.jsx           # Login page
 │   │   │── Signup.jsx          # Signup page
-│   │   │── Dashboard.jsx       # Dashboard (after login)
+│   │   │── Dashboard.jsx       # Dashboard (after login) 
 │   │── dashboard/              # Dashboard-specific components
 │   │   │── Sidebar.jsx         # Dashboard sidebar
 │   │   │── Overview.jsx        # Main dashboard view
