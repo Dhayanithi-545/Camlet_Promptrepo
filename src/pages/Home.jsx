@@ -1,10 +1,10 @@
-import "../styles/global.css";
-// import Navbar from "../components/Navbar";
+import "../styles/Home.css";
+import Navbar from "../components/Navbar";
 
 const Home = () => {
   return (
     <div className="home-container">
-      {/* <Navbar /> */}
+      <Navbar />
       <header className="hero-section">
         <div className="hero-content">
           <h1>Camlet has been reimagined with credit karma</h1>
