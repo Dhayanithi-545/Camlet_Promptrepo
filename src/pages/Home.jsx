@@ -1,17 +1,21 @@
 import "../styles/Home.css";
 import Navbar from "../components/Navbar";
+// import student from '../assets/image.png'
+// import money from '../assets/hand-money.jpg'
 import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
     <div className="home-container">
-      {/* <Navbar /> */}
+      <Navbar/>
       <header className="hero-section">
         <div className="hero-content">
           <h1>Camlet has been reimagined with credit karma</h1>
           <p>Reviewing transactions, monitoring your spending and tracking your net worth now have a new home.</p>
           <button className="cta-button">Check this out</button>
         </div>
+        {/* <img className="student-img" src={student} alt="" />
+        <img className="money-img" src={money} alt="" /> */}
       </header>
 
       <section className="features-section">

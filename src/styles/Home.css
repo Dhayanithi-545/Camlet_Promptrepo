@@ -1,4 +1,7 @@
-/* Home Page Styling */
+body{
+  background-color: #001a55;
+}
+
 .home-container {
   font-family: Arial, sans-serif;
   background-color: #001a55;
@@ -10,28 +13,38 @@
   background: url('/assets/hero-bg.jpg') no-repeat center center/cover;
   padding: 80px 20px;
   text-align: center;
+  max-width: 700px;
+  text-align: left;
+  margin-left: 50px;
 }
 
 .hero-content h1 {
   color: #00ff66;
-  font-size: 2.5rem;
+  font-size: 4.3rem;
   font-weight: bold;
 }
 
 .hero-content p {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   margin-top: 10px;
+  max-width: 500px;
+
 }
 
 .cta-button {
   background-color: #00ff66;
   color: #001a55;
   padding: 10px 20px;
-  font-size: 1rem;
+  font-size: 1.5rem;
   border: none;
   cursor: pointer;
   margin-top: 15px;
   border-radius: 5px;
+  transition: 0.3s ease-in-out;
+}
+
+.cta-button:hover{
+  background-color: #029e41;
 }
 
 /* Features Section */
@@ -54,6 +67,32 @@
 
 .feature-text {
   max-width: 400px;
+}
+
+.money-img{
+  position: absolute;
+  width: 600px;
+  height: 400px;
+  top: 20%;
+  right: 30%;
+  border: 1px solid black;
+  border-top-left-radius: 100px;
+  border-bottom-right-radius: 100px;
+  box-shadow: 10px 5px 10px black;
+  opacity: 90%;
+}
+
+.student-img{
+  position: absolute;
+  width: 600px;
+  height: 400px;
+  top: 30%;
+  right: 3%;
+  border: 1px solid black;
+  border-top-right-radius: 100px;
+  border-bottom-left-radius: 100px;
+  box-shadow: 10px 5px 10px black;
+
 }
 
 /* Footer */
