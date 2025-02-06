@@ -1,12 +1,19 @@
 body{
-  background-color: #001a55;
+  background-color: rgb(36, 36, 36);
 }
 
-.home-container {
-  font-family: Arial, sans-serif;
-  background-color: #001a55;
-  color: white;
+
+
+.hero-content h1{
+  font-family: "Nunito Sans", serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100,
+    "YTLC" 500;
 }
+
 
 /* Hero Section */
 .hero-section {
@@ -19,38 +26,72 @@ body{
 }
 
 .hero-content h1 {
-  color: #00ff66;
+  color: rgb(53, 250, 46);
+  text-shadow: 12px 10px 12px rgb(12, 12, 12);
   font-size: 4.3rem;
   font-weight: bold;
+  line-height: 1.2;
 }
 
 .hero-content p {
   font-size: 1.5rem;
-  margin-top: 10px;
+  color: rgb(165, 165, 165);
+  text-shadow: 5px 5px 5px rgb(0, 0, 0);
   max-width: 500px;
-
+  font-style: italic;
+  font-family: "Nunito Sans", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style:oblique;
+  font-variation-settings:
+    "wdth" 100,
+    "YTLC" 500;
 }
 
 .cta-button {
-  background-color: #00ff66;
-  color: #001a55;
+  background-color: rgb(196, 195, 195);
+  color: black;
   padding: 10px 20px;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
+  font-weight:525;
   border: none;
   cursor: pointer;
   margin-top: 15px;
-  border-radius: 5px;
-  transition: 0.3s ease-in-out;
+  border: 2px solid black;
+  border-radius: 20px;
+  transition: 0.2s ease-in-out;
+  font-family: "Nunito Sans", serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100,
+    "YTLC" 500;
 }
 
 .cta-button:hover{
-  background-color: #029e41;
+  background-color: rgb(53, 250, 46);
 }
 
 /* Features Section */
 .features-section {
   padding: 50px 20px;
   text-align: center;
+  font-size: 1.5rem;
+  color: rgb(165, 165, 165);
+  text-shadow: 5px 5px 5px rgb(0, 0, 0);
+  font-style: italic;
+  font-family: "Nunito Sans", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style:oblique;
+  font-variation-settings:
+    "wdth" 100,
+    "YTLC" 500;
+}
+
+.features-section h1{
+  color: white;
 }
 
 .feature {
@@ -61,12 +102,35 @@ body{
 }
 
 .feature-image {
-  width: 250px;
+  width: 300px;
   margin: 20px;
 }
 
 .feature-text {
-  max-width: 400px;
+  max-width: 800px;
+  font-size: larger;
+}
+
+.feature-text h3{
+  color: #06f04c;
+}
+
+.feature-text p{
+  color: white;
+}
+
+
+.student-img{
+  position: absolute;
+  width: 600px;
+  height: 400px;
+  top: 30%;
+  right: 3%;
+  border: 1px solid black;
+  border-top-right-radius: 100px;
+  border-bottom-left-radius: 100px;
+  box-shadow: 10px 5px 10px black;
+
 }
 
 .money-img{
@@ -82,26 +146,23 @@ body{
   opacity: 90%;
 }
 
-.student-img{
-  position: absolute;
-  width: 600px;
-  height: 400px;
-  top: 30%;
-  right: 3%;
-  border: 1px solid black;
-  border-top-right-radius: 100px;
-  border-bottom-left-radius: 100px;
-  box-shadow: 10px 5px 10px black;
 
-}
 
 /* Footer */
-.footer {
+.footer-sec {
   display: flex;
   justify-content: space-around;
   padding: 40px 20px;
-  background-color: #000a33;
+  background-color: #505050;
+  font-family: "Nunito Sans", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style:oblique;
+  font-variation-settings:
+    "wdth" 100,
+    "YTLC" 500;
 }
+
 
 .footer-section h4 {
   font-size: 1.2rem;
@@ -111,18 +172,32 @@ body{
 .footer-section ul {
   list-style: none;
   padding: 0;
+  
 }
 
+.footer-section a{
+  text-decoration: none;
+  color: white;
+}
 .footer-section li {
   margin: 5px 0;
+  text-decoration: none;
 }
 
 .social-icons {
   display: flex;
   gap: 10px;
+  line-height: 1.6;
+  color: white;
 }
 
 .app-links img {
   width: 120px;
   margin-top: 10px;
+  cursor: pointer;
+}
+.app-links{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
 }

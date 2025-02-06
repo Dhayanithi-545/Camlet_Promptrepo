@@ -1,27 +1,30 @@
 import "../styles/Home.css";
 import Navbar from "../components/Navbar";
-// import student from '../assets/image.png'
-// import money from '../assets/hand-money.jpg'
+import money from '../assets/money.png'
+import student from '../assets/students.png'
+import content1  from '../assets/content1.png'
+import content2   from "../assets/content2.png";
 import { Link } from "react-router-dom";
+import  apple  from "../assets/apple.png";
+import  play  from "../assets/play.png";
 
 const Home = () => {
   return (
     <div className="home-container">
-      <Navbar/>
       <header className="hero-section">
         <div className="hero-content">
           <h1>Camlet has been reimagined with credit karma</h1>
           <p>Reviewing transactions, monitoring your spending and tracking your net worth now have a new home.</p>
           <button className="cta-button">Check this out</button>
         </div>
-        {/* <img className="student-img" src={student} alt="" />
-        <img className="money-img" src={money} alt="" /> */}
+        <img className="money-img" src={money} alt="" />
+        <img className="student-img" src={student} alt="" />
       </header>
 
       <section className="features-section">
-        <h2>Popular camlet features have made the leap to credit karma to help you grow your mind</h2>
+        <h1>Popular camlet features have made the leap to credit karma to help you grow your mind</h1>
         <div className="feature">
-          <img src="/assets/networth.png" alt="Net Worth" className="feature-image" />
+          <img  src={content1} alt="Net Worth" className="feature-image" />
           <div className="feature-text">
             <h3>Keep tabs on your money one place</h3>
             <p>Link your accounts from more than 17,000 financial institutions and view your connected transactions across them in one place.</p>
@@ -31,11 +34,11 @@ const Home = () => {
           <div className="feature-text">
             <p>Track your monthly spending and more. Review your transactions, track your spending by category and receive monthly insights that help you better understand your money habits.</p>
           </div>
-          <img src="/assets/expenses.png" alt="Expenses" className="feature-image" />
+          <img src={content2} alt="Expenses" className="feature-image" />
         </div>
       </section>
 
-      <footer className="footer">
+      <footer className="footer-sec">
         <div className="footer-section">
           <h4>Explore</h4>
           <ul>
@@ -55,18 +58,21 @@ const Home = () => {
         <div className="footer-section">
           <h4>Get Help</h4>
           <ul className="social-icons">
-            <li>Email</li>
-            <li>Facebook</li>
-            <li>Twitter</li>
-            <li>Instagram</li>
+            <li>
+              <ul>Email</ul>
+              <ul>Twitter</ul>
+              <ul>Facebook</ul>
+              <ul>Instagram</ul>
+            </li>
           </ul>
         </div>
         <div className="footer-section">
           <h4>For best Experience</h4>
           <p>Get Camlet on iPhone and Android</p>
           <div className="app-links">
-            <img src="/assets/appstore.png" alt="App Store" />
-            <img src="/assets/playstore.png" alt="Google Play" />
+            <img style={{"width": "80px"}} src={apple} alt="App Store" />
+            <img style={{"width": "40px","height":"40px","border-radius": "10px"}} src={play} alt="App Store" />
+            
           </div>
         </div>
       </footer>
