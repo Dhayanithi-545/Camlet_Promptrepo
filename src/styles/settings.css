@@ -1,0 +1,86 @@
+/* Center the form container */
+body {
+    background-color: #1e2a38; /* Navy blue background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden; /* Prevent scrolling */
+  }
+  
+  /* Form container */
+  .profile-container {
+    background: #2d3e50; /* Dark grayish-blue */
+    padding: 2rem;
+    border-radius: 12px;
+    width: 400px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    color: white;
+  }
+  
+  /* Title */
+  .profile-container h2 {
+    text-align: center;
+    color: #f0f0f0;
+  }
+  
+  /* Labels */
+  .profile-container label {
+    font-size: 14px;
+    font-weight: bold;
+    display: block;
+    margin-top: 12px;
+    color: #ddd;
+  }
+  
+  /* Inputs */
+  .profile-container input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #4a5d70; /* Dark gray border */
+    border-radius: 5px;
+    font-size: 14px;
+    background: #3b4c5e; /* Dark gray input background */
+    color: white;
+  }
+  
+  /* Inputs focus effect */
+  .profile-container input:focus {
+    outline: none;
+    border-color: #66b3ff; /* Light blue focus */
+  }
+  
+  /* Notification checkboxes */
+  .profile-container .checkbox-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+  }
+  
+  .profile-container input[type="checkbox"] {
+    margin-right: 8px;
+  }
+
+  /* Submit button */
+  .profile-container button {
+    width: 100%;
+    background: #003366; /* Dark navy blue */
+    color: gray;
+    padding: 10px;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background 0.3s;
+  }
+  
+  /* Hover effect */
+  .profile-container button:hover {
+    background: #6a7b8b; /* Lighter navy */
+  }
+  
