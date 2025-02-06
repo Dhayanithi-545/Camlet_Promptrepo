@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "../styles/Signup.css";
 import { FaUser, FaEnvelope, FaLock, FaCheck } from "react-icons/fa";
 import { Link } from "react-router-dom";

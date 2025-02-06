@@ -51,7 +51,10 @@
 
 
 ## Presentation link
+https://www.canva.com/design/DAGdvXGF5Qo/xJdJK1raJiZszN7g-xjvuQ/edit?utm_content=DAGdvXGF5Qo&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
 
+## Prototype link (Figma ui/ux)
+ https://www.figma.com/design/LngJlqkpSAP8L0Xg3cPd6l/Camlet?node-id=0-1&t=VX4DylSWkVs1bJzX-1
 
 ## Deployment link
 
