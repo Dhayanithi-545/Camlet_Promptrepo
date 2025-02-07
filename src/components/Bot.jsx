@@ -27,7 +27,7 @@ const Chatbot = () => {
     };
 
     const fetchChatbotResponse = async (userInput) => {
-        const url = `https://api-inference.huggingface.co/models/${MODEL_NAME}`;
+        // const url = `https://api-inference.huggingface.co/models/${MODEL_NAME}`;
         const headers = {
             Authorization: `Bearer ${API_KEY}`,
             "Content-Type": "application/json",
