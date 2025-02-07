@@ -7,6 +7,7 @@ import content2   from "../assets/content2.png";
 import { Link } from "react-router-dom";
 import  apple  from "../assets/apple.png";
 import  play  from "../assets/play.png";
+import Bot from "../components/Bot";
 
 const Home = () => {
   return (
@@ -35,6 +36,7 @@ const Home = () => {
             <p>Track your monthly spending and more. Review your transactions, track your spending by category and receive monthly insights that help you better understand your money habits.</p>
           </div>
           <img src={content2} alt="Expenses" className="feature-image" />
+          <Bot />
         </div>
       </section>
 
