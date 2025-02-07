@@ -2,59 +2,59 @@ import React, { useState, useRef } from "react";
 import { FaUser, FaRobot } from "react-icons/fa";
 
 const Chatbot = () => {
-    const [messages, setMessages] = useState([]);
-    const [userInput, setUserInput] = useState("");
-    const chatBoxRef = useRef(null);
+    // const [messages, setMessages] = useState([]);
+    // const [userInput, setUserInput] = useState("");
+    // const chatBoxRef = useRef(null);
 
-    // const API_KEY = "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"; // Replace with your actual key
-    // const MODEL_NAME = "HuggingFaceH4/zephyr-7b-alpha";
+    // // const API_KEY = "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"; // Replace with your actual key
+    // // const MODEL_NAME = "HuggingFaceH4/zephyr-7b-alpha";
 
-    const sendMessage = async () => {
-        if (!userInput.trim()) return;
+    // const sendMessage = async () => {
+    //     if (!userInput.trim()) return;
 
-        const newUserMessage = { text: userInput, sender: "user" };
-        setMessages((prevMessages) => [...prevMessages, newUserMessage]);
-        setUserInput("");
+    //     const newUserMessage = { text: userInput, sender: "user" };
+    //     setMessages((prevMessages) => [...prevMessages, newUserMessage]);
+    //     setUserInput("");
 
-        const botReply = await fetchChatbotResponse(userInput);
-        const newBotMessage = { text: botReply, sender: "bot" };
-        setMessages((prevMessages) => [...prevMessages, newBotMessage]);
+    //     const botReply = await fetchChatbotResponse(userInput);
+    //     const newBotMessage = { text: botReply, sender: "bot" };
+    //     setMessages((prevMessages) => [...prevMessages, newBotMessage]);
 
-        // Scroll to the bottom of the chat box
-        if (chatBoxRef.current) {
-            chatBoxRef.current.scrollTop = chatBoxRef.current.scrollHeight;
-        }
-    };
+    //     // Scroll to the bottom of the chat box
+    //     if (chatBoxRef.current) {
+    //         chatBoxRef.current.scrollTop = chatBoxRef.current.scrollHeight;
+    //     }
+    // };
 
-    const fetchChatbotResponse = async (userInput) => {
-        // const url = `https://api-inference.huggingface.co/models/${MODEL_NAME}`;
-        const headers = {
-            Authorization: `Bearer ${API_KEY}`,
-            "Content-Type": "application/json",
-        };
-        const data = {
-            inputs: `User: ${userInput}\nAssistant:`,
-            parameters: {
-                max_new_tokens: 100,
-                temperature: 0.7,
-                top_p: 0.9,
-                do_sample: true,
-                repetition_penalty: 1.1,
-            },
-        };
+    // const fetchChatbotResponse = async (userInput) => {
+    //     // const url = `https://api-inference.huggingface.co/models/${MODEL_NAME}`;
+    //     const headers = {
+    //         Authorization: `Bearer ${API_KEY}`,
+    //         "Content-Type": "application/json",
+    //     };
+    //     const data = {
+    //         inputs: `User: ${userInput}\nAssistant:`,
+    //         parameters: {
+    //             max_new_tokens: 100,
+    //             temperature: 0.7,
+    //             top_p: 0.9,
+    //             do_sample: true,
+    //             repetition_penalty: 1.1,
+    //         },
+    //     };
 
-        try {
-            const response = await fetch(url, {
-                method: "POST",
-                headers: headers,
-                body: JSON.stringify(data),
-            });
-            const result = await response.json();
-            return result[0]?.generated_text?.split("Assistant:")[1]?.trim() || "I couldn't understand that.";
-        } catch (error) {
-            return "Error connecting to AI.";
-        }
-    };
+    //     try {
+    //         const response = await fetch(url, {
+    //             method: "POST",
+    //             headers: headers,
+    //             body: JSON.stringify(data),
+    //         });
+    //         const result = await response.json();
+    //         return result[0]?.generated_text?.split("Assistant:")[1]?.trim() || "I couldn't understand that.";
+    //     } catch (error) {
+    //         return "Error connecting to AI.";
+    //     }
+    // };
 
     return (
         <div style={styles.chatbotContainer}>
