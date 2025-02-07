@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 body{
     background-color: red;
 }
+=======
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+>>>>>>> c5a494122582dacd7c13247ff3a5d276ea8d159c
