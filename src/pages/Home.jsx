@@ -14,12 +14,14 @@ const Home = () => {
     <div className="home-container">
       <header className="hero-section">
         <div className="hero-content">
-          <h1>Camlet has been reimagined with credit karma</h1>
-          <p>Reviewing transactions, monitoring your spending and tracking your net worth now have a new home.</p>
-          <button className="cta-button">Check this out</button>
+          <div className="con-text">
+            <h1>Camlet has been reimagined with credit karma</h1>
+            <p>Reviewing transactions, monitoring your spending and tracking your net worth now have a new home.</p>
+            <button className="cta-button">Check this out</button>
+          </div>
+          <img className="money-img" src={money} alt="" />
+          <img className="student-img" src={student} alt="" />
         </div>
-        <img className="money-img" src={money} alt="" />
-        <img className="student-img" src={student} alt="" />
       </header>
 
       <section className="features-section">
@@ -33,7 +35,8 @@ const Home = () => {
         </div>
         <div className="feature">
           <div className="feature-text">
-            <p>Track your monthly spending and more. Review your transactions, track your spending by category and receive monthly insights that help you better understand your money habits.</p>
+            <h3>Track your monthly spending and more.</h3>
+            <p>Review your transactions, track your spending by category and receive monthly insights that help you better understand your money habits.</p>
           </div>
           <img src={content2} alt="Expenses" className="feature-image" />
           <Bot />
