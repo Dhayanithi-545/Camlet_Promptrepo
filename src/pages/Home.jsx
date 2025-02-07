@@ -13,13 +13,14 @@ const Home = () => {
     <div className="home-container">
       <header className="hero-section">
         <div className="hero-content">
-          <div className="con-text">
+        
             <h1>Camlet has been reimagined with credit karma</h1>
             <p>Reviewing transactions, monitoring your spending and tracking your net worth now have a new home.</p>
             <button className="cta-button">Check this out</button>
-          </div>
-          <img className="money-img" src={money} alt="" />
-          <img className="student-img" src={student} alt="" />
+            <div className="con-images">
+            <img className="money-img" src={money} alt="" />
+            <img className="student-img" src={student} alt="" />
+            </div>
         </div>
       </header>
 
