@@ -8,10 +8,14 @@ import  apple  from "../assets/apple.png";
 import  play  from "../assets/play.png";
 import Bot from "../components/Bot";
 import React from "react";
+import Navbar from "../components/Navbar";
 
 const Home = () => {
   return (
     <div className="home-container">
+      
+      <div>
+      </div>
       <header className="hero-section">
         <div className="hero-content">
           <div className="head">
@@ -52,7 +56,6 @@ const Home = () => {
             <li><Link to="/">Home</Link></li>
             <li><Link to="/camlet-way">Camlet Way</Link></li>
             <li><Link to="/about-us">About Us</Link></li>
-
             <li><Link to="/contact">Contact Us</Link></li>
           </ul>
         </div>

@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import "../styles/Dashboard.css";
 import { FaMoneyBill, FaShoppingCart, FaPiggyBank, FaComments, FaPlus, FaMinus, FaTrash } from "react-icons/fa";
 import Bot from "../components/Bot";
+import React from "react";
+import { Link } from "react-router-dom";
+import logo from '../assets/logo.png'
 
 const Dashboard = () => {
   const [totalMoney, setTotalMoney] = useState(5000);
@@ -66,24 +69,28 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard-container">
-      <header className="dashboard-header">
+      <header className="dashboard-head">
         <h1 className="logo">Camlet</h1>
-        <nav className="dashboard-nav">
-          <a href="#">Dashboard</a>
-          <a href="#">Transactions</a>
-          <a href="#">Overview</a>
-          <a href="#">Settings</a>
-        </nav>
+        <nav className="navbar">
+      <div className="logo">
+        <img src={logo} alt="Camlet Logo" />
+      </div>
+      <ul className="nav-links">
+        <li><Link to="/">Dashboard</Link></li>
+        <li><Link to="/camlet-way">Transactions</Link></li>
+        <li><Link to="/about-us">Overview</Link></li>
+        <li><Link to="/contact">Settings</Link></li>
+      </ul>
+    </nav>
       </header>
-      
-      <h2 className="dashboard-title">Dashboard</h2>
-      <p className="dashboard-subtitle">Monitor your Activities</p>
+      <h1 className="dashboard-title">Dashboard</h1>
+      <h1 className="dashboard-subtitle">Monitor your Activities</h1>
       
       <div className="dashboard-stats">
         <div className="stat-card">
-          <FaMoneyBill className="stat-icon" />
-          <h3>Total Money</h3>
-          <p>{totalMoney}</p>
+          <FaMoneyBill className="stat-icon tot-icon" />
+          <h2 className="total">Total Money</h2>
+          <h1>₹ {totalMoney}</h1>
           <div className="adjust-buttons">
             <FaPlus className="icon" onClick={() => updateTotalMoney(true)} />
             <input type="number" value={amount} onChange={handleAmountChange} placeholder="Amount" />
@@ -91,9 +98,9 @@ const Dashboard = () => {
           </div>
         </div>
         <div className="stat-card">
-          <FaShoppingCart className="stat-icon" />
-          <h3>Money Spent</h3>
-          <p>{moneySpent}</p>
+          <FaShoppingCart className="stat-icon spe-icon" />
+          <h2 className="spent">Money Spent</h2>
+          <h1>₹ {moneySpent}</h1>
           <div className="adjust-buttons">
             <FaPlus className="icon" onClick={() => updateMoneySpent(true)} />
             <input type="number" value={amount} onChange={handleAmountChange} placeholder="Amount" />
@@ -101,9 +108,9 @@ const Dashboard = () => {
           </div>
         </div>
         <div className="stat-card">
-          <FaPiggyBank className="stat-icon" />
-          <h3>Saving</h3>
-          <p>{savings}</p>
+          <FaPiggyBank className="stat-icon sav-icon" />
+          <h2 className="save">Savings</h2>
+          <h1>₹ {savings}</h1>
           <div className="adjust-buttons">
             <FaPlus className="icon" onClick={() => updateSavings(true)} />
             <input type="number" value={amount} onChange={handleAmountChange} placeholder="Amount" />
@@ -114,7 +121,7 @@ const Dashboard = () => {
       
       <div className="container">
         <div className="vital-expenses">
-          <h3>Vital Expenses <FaPlus className="plus-icon" onClick={() => setShowInput(true)} /></h3>
+          <h2 className="vital"> Vital Expenses <FaPlus className="plus-icon" onClick={() => setShowInput(true)} /></h2>
           <ul>
             {expenses.map((expense, index) => (
               <li key={index} className="expense-item">

@@ -1,5 +1,6 @@
-import React, { useState, useRef } from "react";
+import { useState, useRef } from "react";
 import { FaUser, FaRobot } from "react-icons/fa";
+import React from "react";
 
 const Chatbot = () => {
     const [messages, setMessages] = useState([]);

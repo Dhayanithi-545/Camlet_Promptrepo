@@ -2,11 +2,22 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
-  background-color: #0c0b1d;
+  background-color: #202020;
   color: white;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  font-family: "Nunito Sans", serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100,
+    "YTLC" 500;
+}
+
+.dashboard-title{
+  color: yellow;
 }
 
 .dashboard-container {
@@ -19,7 +30,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 20px 30px;
-  background-color: #1a1a2e;
+  background-color: #ffffff;
   border-radius: 12px;
   font-weight: 600;
 }
@@ -45,29 +56,53 @@ body {
 
 .dashboard-title {
   margin-top: 30px;
-  font-size: 36px;
+  font-size: 4rem;
   font-weight: 800;
 }
 
 .dashboard-subtitle {
-  font-size: 20px;
+  font-size: 1.7rem;
   color: #bbbbbb;
   font-weight: 400;
 }
 
+.total{
+  color: #71f571;
+}
+.spent{
+  color: rgb(192, 79, 79);
+}
+.save{
+  color: rgb(197, 197, 50);
+  font-weight: 800;
+}
+
 .dashboard-stats {
   display: flex;
-  justify-content: space-between;
+  justify-content:center;
   margin-top: 30px;
   gap: 30px;
 }
 
+.tot-icon{
+  color: #2dff03;
+}
+
+.spe-icon{
+  color: #ffbb00;
+}
+
+.sav-icon{
+  color: rgb(167, 72, 245);
+}
+
+
 .stat-card {
-  background-color: #292144;
+  background-color: #333333;
   padding: 30px;
   border-radius: 12px;
+  width: 20%;
   text-align: center;
-  width: 30%;
   font-size: 20px;
   font-weight: 500;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
@@ -81,7 +116,6 @@ body {
 .stat-icon {
   font-size: 40px;
   margin-bottom: 15px;
-  color: #ffcc00;
 }
 
 .container {
@@ -92,7 +126,7 @@ body {
 }
 
 .vital-expenses {
-  background-color: #1c1a30;
+  background-color: #333333;
   padding: 30px;
   border-radius: 12px;
   font-size: 18px;
@@ -102,6 +136,10 @@ body {
   align-items: center;
   position: relative;
   transition: all 0.3s ease;
+}
+
+.vital{
+  color: rgb(255, 255, 255);
 }
 
 .vital-expenses ul {

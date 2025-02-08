@@ -2,6 +2,7 @@ import "../styles/Navbar.css";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 import React from "react";
+
 const Navbar = () => {
   return (
     <nav className="navbar joe">
@@ -11,7 +12,6 @@ const Navbar = () => {
       <ul className="nav-links">
         <li><Link to="/">Home</Link></li>
         <li><Link to="/camlet-way">Camlet Way</Link></li>
-                    <li><Link to='/transaction'>jasd</Link></li>
         <li><Link to="/about-us">About Us</Link></li>
         <li><Link to="/contact">Contact Us</Link></li>
       </ul>
