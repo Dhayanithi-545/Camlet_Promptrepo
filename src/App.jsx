@@ -6,6 +6,9 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Navbar from "./components/Navbar";
 import Settings from "./pages/settings";
+import React from "react";
+import Dashboard from "./pages/dashboard"
+import Overview from "./pages/Overview";
 
 import '../src/index.css'
 
@@ -20,7 +23,9 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/dashboard" element={<Dashboard />} /> {/* ✅ Add this */}
+        <Route path="/React " element={<React/>}/>
         <Route path="/settings" element={<Settings />} />
+        <Route path="/Overview" element={<Overview />} />
       </Routes>
     </BrowserRouter>
   );
