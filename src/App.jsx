@@ -4,10 +4,11 @@ import CamletWay from "./pages/CamletWay";
 import About from "./pages/About";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import Dashboard from "./pages/dashboard"; // ✅ Add this
 import Navbar from "./components/Navbar";
 import Settings from "./pages/settings";
-import React from "react";
+
+import '../src/index.css'
+
 function App() {
   return (
     <BrowserRouter>
