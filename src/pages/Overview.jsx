@@ -16,6 +16,17 @@ const savingsData = [
   { month: "Dec", savings: 1050 },
 ];
 
+const activityData = [
+  { category: "Online Shopping", amount: 320, size: 120, color: "green" },
+  { category: "Rent", amount: 120, size: 90, color: "gray" },
+  { category: "Food", amount: 20, size: 60, color: "black" },
+];
+
+const comparisonData = [
+  { label: "This Month", value: 75, color: "green" },
+  { label: "Last Month", value: 50, color: "gray" },
+];
+
 const Overview = () => {
   return (
     <div style={styles.container}>
@@ -34,38 +45,71 @@ const Overview = () => {
         </ResponsiveContainer>
       </div>
 
-      {/* Activity and Comparison */}
+      {/* Right Panel - Activity & Comparison */}
       <div style={styles.rightPanel}>
+        
+        {/* Activity Section */}
         <div style={styles.activity}>
-          <h3>Activity</h3>
+          <h3 style={commonStyles.floatingText}>Activity</h3>
           <div style={styles.bubbleContainer}>
-            <div style={{ ...styles.bubble, backgroundColor: "lightgreen" }}>
-              Rs.2000 <br /> Online Shopping
-            </div>
-            <div style={{ ...styles.bubble, backgroundColor: "gray" }}>
-              Rs.250 <br /> Rent
-            </div>
-            <div style={{ ...styles.bubble, backgroundColor: "lightcoral" }}>
-              Rs.1550 <br /> Food
-            </div>
+            {activityData.map((item, index) => (
+              <div
+                key={index}
+                style={{
+                  ...styles.bubble,
+                  width: `${item.size}px`,
+                  height: `${item.size}px`,
+                  backgroundColor: item.color,
+                }}
+              >
+                <span style={styles.bubbleText}>
+                  ${item.amount} <br /> {item.category}
+                </span>
+              </div>
+            ))}
           </div>
         </div>
 
+        {/* Comparison Section */}
         <div style={styles.comparison}>
           <h3>Comparison (Monthly)</h3>
-          <div style={styles.comparisonBar}>
-            <div style={styles.janBar}></div> Jan
-          </div>
-          <div style={styles.comparisonBar}>
-            <div style={styles.decBar}></div> Dec
+          <div style={styles.comparisonBarContainer}>
+            {comparisonData.map((item, index) => (
+              <div key={index} style={styles.comparisonRow}>
+                <span>{item.label}</span>
+                <div
+                  style={{
+                    ...styles.comparisonBar,
+                    width: `${item.value}%`,
+                    backgroundColor: item.color,
+                  }}
+                />
+              </div>
+            ))}
           </div>
         </div>
+
       </div>
+
+      {/* Floating Effect */}
+      <style>
+        {`
+          @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+          }
+
+          .bubble:hover {
+            animation: float 1s ease-in-out infinite;
+          }
+        `}
+      </style>
     </div>
   );
 };
 
-// Inline CSS
+// Styles
 const styles = {
   container: {
     padding: "20px",
@@ -95,19 +139,24 @@ const styles = {
   },
   bubbleContainer: {
     display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
     gap: "10px",
     marginTop: "10px",
   },
   bubble: {
-    padding: "10px",
     borderRadius: "50%",
-    width: "80px",
-    height: "80px",
     textAlign: "center",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     fontSize: "12px",
+    fontWeight: "bold",
+    position: "relative",
+    color: "white",
+  },
+  bubbleText: {
+    textAlign: "center",
     fontWeight: "bold",
   },
   comparison: {
@@ -115,21 +164,33 @@ const styles = {
     padding: "15px",
     borderRadius: "10px",
   },
-  comparisonBar: {
+  comparisonBarContainer: {
+    display: "flex",
+    flexDirection: "column",
+    gap: "10px",
+    marginTop: "10px",
+  },
+  comparisonRow: {
     display: "flex",
     alignItems: "center",
+    justifyContent: "space-between",
     gap: "10px",
-    marginBottom: "10px",
   },
-  janBar: {
-    width: "50px",
+  comparisonBar: {
     height: "10px",
-    backgroundColor: "lightgreen",
+    borderRadius: "5px",
+    flexGrow: 1,
   },
-  decBar: {
-    width: "100px",
-    height: "10px",
-    backgroundColor: "gray",
+};
+
+// Floating text style
+const commonStyles = {
+  floatingText: {
+    fontFamily: "Arial, sans-serif",
+    fontSize: "18px",
+    fontWeight: "bold",
+    color: "#FFF",
+    textShadow: "1px 1px 5px rgba(0, 0, 0, 0.2)",
   },
 };
 
