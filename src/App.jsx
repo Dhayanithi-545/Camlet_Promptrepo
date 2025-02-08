@@ -9,9 +9,7 @@ import Settings from "./pages/settings";
 import React from "react";
 import Dashboard from "./pages/dashboard"
 import Overview from "./pages/Overview";
-
 import '../src/index.css'
-
 function App() {
   return (
     <BrowserRouter>
