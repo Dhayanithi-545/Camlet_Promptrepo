@@ -1,5 +1,4 @@
 import "../styles/Home.css";
-import Navbar from "../components/Navbar";
 import money from '../assets/money.png'
 import student from '../assets/students.png'
 import content1  from '../assets/content1.png'
@@ -7,17 +6,19 @@ import content2   from "../assets/content2.png";
 import { Link } from "react-router-dom";
 import  apple  from "../assets/apple.png";
 import  play  from "../assets/play.png";
-import React from "react";
 import Bot from "../components/Bot";
+import React from "react";
 
 const Home = () => {
   return (
     <div className="home-container">
       <header className="hero-section">
         <div className="hero-content">
+          <div className="head">
             <h1>Camlet has been reimagined with credit karma</h1>
             <p>Reviewing transactions, monitoring your spending and tracking your net worth now have a new home.</p>
             <button className="cta-button">Check this out</button>
+          </div>
             <div className="con-images">
             <img className="money-img" src={money} alt="" />
             <img className="student-img" src={student} alt="" />
@@ -51,6 +52,7 @@ const Home = () => {
             <li><Link to="/">Home</Link></li>
             <li><Link to="/camlet-way">Camlet Way</Link></li>
             <li><Link to="/about-us">About Us</Link></li>
+
             <li><Link to="/contact">Contact Us</Link></li>
           </ul>
         </div>

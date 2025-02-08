@@ -6,7 +6,8 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Navbar from "./components/Navbar";
 import Settings from "./pages/settings";
-
+import React from "react";
+import Transaction from './pages/Transaction'
 import '../src/index.css'
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/camlet-way" element={<CamletWay />} />
+        <Route path="/transaction">{Transaction}</Route>
         <Route path="/about-us" element={<About />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
