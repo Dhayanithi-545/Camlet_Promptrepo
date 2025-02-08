@@ -4,10 +4,10 @@ import CamletWay from "./pages/CamletWay";
 import About from "./pages/About";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import Dashboard from "./pages/dashboard"; // ✅ Add this
 import Navbar from "./components/Navbar";
 import Settings from "./pages/settings";
-
-
+import React from "react";
 function App() {
   return (
     <BrowserRouter>
@@ -18,6 +18,7 @@ function App() {
         <Route path="/about-us" element={<About />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/dash" element={<Dashboard />} /> {/* ✅ Add this */}
         <Route path="/settings" element={<Settings />} />
       </Routes>
     </BrowserRouter>

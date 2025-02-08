@@ -1,7 +1,8 @@
 import { useState } from "react";
 import "../styles/Signup.css";
 import { FaUser, FaEnvelope, FaLock, FaCheck } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"; // Import useNavigate
+import React from "react";
 
 const SignupPage = () => {
   const [formData, setFormData] = useState({
@@ -17,6 +18,9 @@ const SignupPage = () => {
     confirmPassword: "",
   });
 
+  const [signupSuccess, setSignupSuccess] = useState(false); // Track signup success
+  const navigate = useNavigate(); // Initialize useNavigate
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -24,8 +28,8 @@ const SignupPage = () => {
       [name]: value,
     });
 
-    // Validate fields as the user types
-    if (name === "email") {
+    // Validate fields as the user types (same as before)
+     if (name === "email") {
       setErrors({
         ...errors,
         email: !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
@@ -51,10 +55,10 @@ const SignupPage = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validate all fields before submission
+    // Validate all fields before submission (same as before)
     const newErrors = {
       email: !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)
         ? "Invalid email address"
@@ -73,15 +77,37 @@ const SignupPage = () => {
 
     // Check if there are any errors
     if (Object.values(newErrors).every((error) => !error)) {
-      console.log("Form Data Submitted:", formData);
-      // Reset form fields after submission
-      setFormData({
-        name: "",
-        email: "",
-        password: "",
-        confirmPassword: "",
-      });
-      alert("Signup successful!");
+      try {
+        const response = await fetch("http://localhost:5000/auth/signup", {  // Replace with your actual backend URL
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        });
+
+        if (response.ok) {
+          console.log("Signup successful!");
+          setSignupSuccess(true); // Set signupSuccess to true
+          // Reset form fields after successful submission
+          setFormData({
+            name: "",
+            email: "",
+            password: "",
+            confirmPassword: "",
+          });
+
+          // Redirect to dashboard after successful signup
+          navigate("/dashboard");
+        } else {
+          const errorData = await response.json();
+          console.error("Signup failed:", errorData.message);
+          alert(`Signup failed: ${errorData.message}`); // Display error from backend
+        }
+      } catch (error) {
+        console.error("Error during signup:", error);
+        alert("Error during signup. Please try again.");
+      }
     } else {
       console.log("Form has errors. Please fix them.");
     }
