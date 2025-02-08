@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { Bar } from "react-chartjs-2";
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from "chart.js";
-
+import { Link } from "react-router-dom";
+import logo from '../assets/logo.png'
 // Register Chart.js components
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const App = () => {
   const theme = {
-    background: "#0D0D1F",
+    background: "#202020",
     cardBackground: "#1E1E3F",
     textColor: "white",
     headerBg: "#3A3A6E",
@@ -74,7 +75,23 @@ const App = () => {
   };
 
   return (
+
     <div style={{ backgroundColor: theme.background, color: theme.textColor, fontFamily: "Arial, sans-serif", minHeight: "100vh", padding: "20px", display: "flex", flexDirection: "column", alignItems: "center" }}>
+      
+     <nav className="navbar">
+          <div className="logo">
+            <img src={logo} alt="Camlet Logo" />
+          </div>
+          <ul className="nav-links">
+            <li><Link to="/">Dashboard</Link></li>
+            <li><Link to="/transactions">Transactions</Link></li>
+            <li><Link to="/about-us">Overview</Link></li>
+            <li><Link to="/contact">Settings</Link></li>
+          </ul>
+        </nav>
+
+
+
       <h2 style={{ marginBottom: "20px" }}>Campus Wallet</h2>
 
       {/* Reminder Box */}
@@ -134,6 +151,7 @@ const App = () => {
         <h3>Transaction History Chart</h3>
         <Bar data={chartData} options={chartOptions} />
       </div>
+      
     </div>
   );
 };

@@ -77,7 +77,7 @@ const Dashboard = () => {
       </div>
       <ul className="nav-links">
         <li><Link to="/">Dashboard</Link></li>
-        <li><Link to="/camlet-way">Transactions</Link></li>
+        <li><Link to="/transactions">Transactions</Link></li>
         <li><Link to="/about-us">Overview</Link></li>
         <li><Link to="/contact">Settings</Link></li>
       </ul>
