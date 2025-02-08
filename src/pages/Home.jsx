@@ -7,6 +7,7 @@ import content2   from "../assets/content2.png";
 import { Link } from "react-router-dom";
 import  apple  from "../assets/apple.png";
 import  play  from "../assets/play.png";
+import React from "react";
 import Bot from "../components/Bot";
 
 const Home = () => {

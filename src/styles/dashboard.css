@@ -1,0 +1,22 @@
+.dashboard-container {
+  min-height: 100vh;
+  background-color: #0f0f1a;
+  color: white;
+  padding: 20px;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.dashboard-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.dashboard-user {
+  font-size: 18px;
+}
