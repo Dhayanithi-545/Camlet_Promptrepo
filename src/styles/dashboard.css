@@ -159,6 +159,9 @@ body {
   outline: none;
   flex: 1;
   font-size: 16px;
+  background-color: #25203a; /* Matching the dashboard theme */
+  color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .expense-input button {
@@ -183,6 +186,10 @@ body {
   width: 48%; /* Adjusted width to balance with the Vital Expenses */
   position: relative;
   transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 .bbot-chat:hover {
@@ -194,3 +201,60 @@ body {
   margin-bottom: 12px;
   color: #00ccff;
 }
+
+.bbot-chat h3 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #00ccff;
+}
+
+/* Adjust the Bot component container to fit better */
+.bbot-chat .bot-container {
+  flex: 1;
+  width: 100%;
+  overflow-y: auto;
+  max-height: 400px;
+  background-color: #18162b;
+  padding: 10px;
+  border-radius: 8px;
+  color: white;
+}
+
+.bbot-chat .bot-container p {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.bbot-chat .bot-input-container {
+  display: flex;
+  margin-top: 15px;
+  gap: 10px;
+}
+
+.bbot-chat .bot-input-container input {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  flex: 1;
+  font-size: 16px;
+  background-color: #25203a;
+  color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.bbot-chat .bot-input-container button {
+  background-color: #ffcc00;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.bbot-chat .bot-input-container button:hover {
+  background-color: #e6b800;
+}
+

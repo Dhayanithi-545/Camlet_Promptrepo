@@ -1,202 +1,86 @@
-import React, { useState, useRef } from "react";
-import { FaUser, FaRobot } from "react-icons/fa";
+import React, { useState } from "react";
+import "../styles/Bot.css"
+const API_KEY = "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"; // Replace with your actual Hugging Face API key
+const MODEL_NAME = "facebook/blenderbot-400M-distill"; // BlenderBot model
+
 
 const Chatbot = () => {
-    const [messages, setMessages] = useState([]);
-    const [userInput, setUserInput] = useState("");
-    const chatBoxRef = useRef(null);
+  const [messages, setMessages] = useState([]);
+  const [input, setInput] = useState("");
 
-    const API_KEY = "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"; // Replace with your actual key
-    const MODEL_NAME = "HuggingFaceH4/zephyr-7b-alpha";
+  const sendMessage = async () => {
+    if (!input.trim()) return;
 
-    const sendMessage = async () => {
-        if (!userInput.trim()) return;
+    const userMessage = { text: input, sender: "user" };
+    setMessages([...messages, userMessage]);
+    setInput("");
 
-        const newUserMessage = { text: userInput, sender: "user" };
-        setMessages((prevMessages) => [...prevMessages, newUserMessage]);
-        setUserInput("");
+    const botResponse = await fetchChatbotResponse(input);
+    const botMessage = { text: botResponse, sender: "bot" };
+    setMessages([...messages, userMessage, botMessage]);
+  };
 
-        const botReply = await fetchChatbotResponse(userInput);
-        const newBotMessage = { text: botReply, sender: "bot" };
-        setMessages((prevMessages) => [...prevMessages, newBotMessage]);
-
-        // Scroll to the bottom of the chat box
-        if (chatBoxRef.current) {
-            chatBoxRef.current.scrollTop = chatBoxRef.current.scrollHeight;
-        }
+  const fetchChatbotResponse = async (userInput) => {
+    const url = `https://api-inference.huggingface.co/models/${MODEL_NAME}`;
+    const headers = {
+      "Authorization": `Bearer ${API_KEY}`,
+      "Content-Type": "application/json"
     };
-
-    const fetchChatbotResponse = async (userInput) => {
-        // Remove input sanitization for now to test
-        const sanitizedInput = userInput;  // Keep the input as is for testing
-
-        // Add instruction to guide the model for direct answers
-        const instruction = `Answer the following question directly, without suggestions or irrelevant information: `;
-        const fullInput = instruction + sanitizedInput;
-
-        const url = `https://api-inference.huggingface.co/models/${MODEL_NAME}`;
-        const headers = {
-            Authorization: `Bearer ${API_KEY}`,
-            "Content-Type": "application/json",
-        };
-        const data = {
-            inputs: fullInput,  // Include instruction in the input
-            parameters: {
-                max_new_tokens: 50,  // Reduced token count for simpler output
-                temperature: 0,  // Make the response more deterministic
-                top_p: 0.3,  // Lower the likelihood of random answers
-                do_sample: false,  // Avoid sampling and get deterministic answers
-                repetition_penalty: 1.1,
-            },
-        };
-
-        try {
-            const response = await fetch(url, {
-                method: "POST",
-                headers: headers,
-                body: JSON.stringify(data),
-            });
-            const result = await response.json();
-            console.log(result);  // Log raw response for debugging
-            return result[0]?.generated_text?.trim() || "I couldn't understand that.";
-        } catch (error) {
-            return "Error connecting to AI.";
-        }
+  
+    const data = {
+      inputs: `User: ${userInput}\nAssistant:`,
+      parameters: {
+        max_new_tokens: 100,
+        temperature: 0.7,
+        top_p: 0.9,
+        do_sample: true,
+        repetition_penalty: 1.1
+      }
     };
+  
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        headers: headers,
+        body: JSON.stringify(data)
+      });
+  
+      if (!response.ok) {
+        console.error("Error:", response.status, response.statusText);
+        return `Error ${response.status}: ${response.statusText}`;
+      }
+  
+      const result = await response.json();
+      console.log("API Response:", result);
+  
+      return result[0]?.generated_text?.trim() || "I couldn't understand that."; // ✅ Fixed extraction
+    } catch (error) {
+      console.error("Fetch Error:", error);
+      return "Error connecting to AI.";
+    }
+  };
+  
 
-    return (
-        <div style={styles.chatbotContainer}>
-            <div style={styles.chatBox} ref={chatBoxRef}>
-                {messages.map((message, index) => {
-                    const messageStyle =
-                        message.sender === "user" ? styles.userMessage : styles.botMessage;
-
-                    return (
-                        <div
-                            key={index}
-                            style={{
-                                ...styles.message,
-                                ...messageStyle,
-                            }}
-                        >
-                            <div style={styles.messageIcon}>
-                                {message.sender === "user" ? <FaUser /> : <FaRobot />}
-                            </div>
-                            <div style={styles.messageText}>{message.text}</div>
-                        </div>
-                    );
-                })}
-            </div>
-            <div style={styles.inputContainer}>
-                <input
-                    type="text"
-                    value={userInput}
-                    onChange={(e) => setUserInput(e.target.value)}
-                    placeholder="Type your message..."
-                    onKeyPress={(e) => e.key === "Enter" && sendMessage()}
-                    style={styles.input}
-                />
-                <button onClick={sendMessage} style={styles.button}>
-                    Send
-                </button>
-            </div>
-        </div>
-    );
+  return (
+    <div className="chat-container">
+      <div className="chat-box">
+        {messages.map((msg, index) => (
+          <div key={index} className={`message ${msg.sender}`}>
+            {msg.text}
+          </div>
+        ))}
+      </div>
+      <div className="input-container">
+        <input
+          type="text"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          placeholder="Type your message..."
+        />
+        <button onClick={sendMessage}>Send</button>
+      </div>
+    </div>
+  );
 };
 
 export default Chatbot;
-
-// Styles
-const styles = {
-    chatbotContainer: {
-        width: "400px",
-        background: "#ffffff",
-        padding: "20px",
-        borderRadius: "12px",
-        boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
-        display: "flex",
-        flexDirection: "column",
-        height: "500px",
-        fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
-    },
-    chatBox: {
-        flex: 1,
-        overflowY: "auto",
-        borderBottom: "1px solid #e0e0e0",
-        padding: "10px",
-        display: "flex",
-        flexDirection: "column",
-        gap: "12px",
-        backgroundColor: "#f9f9f9",
-        borderRadius: "8px",
-        marginBottom: "10px",
-    },
-    message: {
-        display: "flex",
-        alignItems: "flex-start",
-        padding: "10px",
-        borderRadius: "8px",
-        maxWidth: "80%",
-        lineHeight: "1.4",
-        fontSize: "14px",
-        fontStyle: "normal",
-        textShadow: "none",
-    },
-    userMessage: {
-        background: "#007bff",
-        color: "#ffffff",
-        alignSelf: "flex-end",
-        marginLeft: "auto",
-        borderBottomRightRadius: "4px",
-    },
-    botMessage: {
-        background: "#ffffff",
-        color: "#333333",
-        textAlign: "left",
-        alignSelf: "flex-start",
-        border: "1px solid #e0e0e0",
-        borderBottomLeftRadius: "4px",
-    },
-    messageIcon: {
-        fontSize: "1.2rem",
-        margin: "0 10px",
-        color: "#007bff",
-        textShadow: "none",
-        fontStyle: "normal",
-    },
-    messageText: {
-        wordWrap: "break-word",
-        flex: 1,
-        fontStyle: "normal",
-        textShadow: "none",
-    },
-    inputContainer: {
-        display: "flex",
-        gap: "8px",
-        marginTop: "10px",
-    },
-    input: {
-        flex: 1,
-        padding: "10px",
-        border: "1px solid #e0e0e0",
-        borderRadius: "8px",
-        fontSize: "14px",
-        outline: "none",
-        transition: "border-color 0.3s ease",
-        fontStyle: "normal",
-        textShadow: "none",
-    },
-    button: {
-        padding: "10px 20px",
-        border: "none",
-        background: "#007bff",
-        color: "#ffffff",
-        cursor: "pointer",
-        borderRadius: "8px",
-        fontSize: "14px",
-        fontWeight: "500",
-        transition: "background 0.3s ease",
-        fontStyle: "normal",
-        textShadow: "none",
-    },
-};
