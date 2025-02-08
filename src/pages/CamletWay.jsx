@@ -15,6 +15,7 @@ export default function CamletLandingPage() {
   backgroundPosition: "center",
   backgroundRepeat: "no-repeat"
 }}>
+
   
   {/* Overlay for Better Readability */}
   <div style={{
