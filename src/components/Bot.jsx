@@ -1,14 +1,14 @@
-<<<<<<< HEAD
+
 import { useState, useRef } from "react";
 import { FaUser, FaRobot } from "react-icons/fa";
+
+
 import React from "react";
-=======
-import React, { useState } from "react";
 import "../styles/Bot.css"
 const API_KEY = "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"; // Replace with your actual Hugging Face API key
 const MODEL_NAME = "facebook/blenderbot-400M-distill"; // BlenderBot model
 
->>>>>>> 23a19213562c56eb65dbd9be65a1755d302e2555
+
 
 const Chatbot = () => {
   const [messages, setMessages] = useState([]);

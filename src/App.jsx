@@ -26,7 +26,6 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} /> ✅ Add this
         <Route path="/settings" element={<Settings />} />
       </Routes>
-      <Transaction/>
     </BrowserRouter>
     </div>
   );
