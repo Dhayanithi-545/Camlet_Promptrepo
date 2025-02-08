@@ -7,22 +7,45 @@ import React from "react";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(""); // Error state
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     
-    // Hardcoded login credentials
-    const validEmail = "joe.celaster123@gmail.com";
-    const validPassword = "joe123@#";
+    // API URL and API Key PROMTREPO
+    const apiUrl = "https://api.promptrepo.com/api/private/final-round-promptrepo";
+    const apiKey = "d4c223e0c35540058d00c9f4b40da9ab";
     
-    // Check if email and password match the hardcoded values
-    if (email === validEmail && password === validPassword) {
-      console.log("Logging in:", { email, password });
-      navigate("/dashboard"); // Redirect to the dashboard on successful login
-    } else {
-      console.log("Invalid credentials");
-      // Optionally, you can add a message or alert to notify the user about invalid credentials
+    // Prepare the data to send
+    const data = [
+      {
+        Email: email,
+        Password: password
+      }
+    ];
+
+    try {
+      const response = await fetch(apiUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-api-key": apiKey
+        },
+        body: JSON.stringify(data)
+      });
+
+      const result = await response.json();
+
+      if (response.ok && result && result.length > 0 && result[0].Email === email) {
+        console.log("Logging in:", { email, password });
+        navigate("/dashboard"); // Redirect to the dashboard on successful login
+      } else {
+        setError("Invalid credentials or server error."); // Show error message
+      }
+    } catch (err) {
+      console.error("Error logging in:", err);
+      setError("Something went wrong. Please try again."); // Error handling
     }
   };
 
@@ -59,6 +82,7 @@ const Login = () => {
               required
             />
           </div>
+          {error && <div className="error-message">{error}</div>} {/* Display error message */}
           <button type="submit" className="submit-button">
             Login
           </button>

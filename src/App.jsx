@@ -20,6 +20,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/camlet-way" element={<CamletWay />} />
+        <Route path="/transactions" element={<Transaction/>}> </Route>
         <Route path="/about-us" element={<About />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
