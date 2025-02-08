@@ -143,7 +143,6 @@ export default function CamletLandingPage() {
     background: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/src/assets/smart.png') center/cover no-repeat`,
     zIndex: 0
   }}></div>
-
   {/* Text Content */}
   <div style={{
     position: "relative",
@@ -188,15 +187,19 @@ export default function CamletLandingPage() {
     alignItems: "center",
     gap: "15px"
   }}>
+
     <li style={{ backgroundColor: "rgba(0, 0, 0, 0.3)", padding: "15px 20px", borderRadius: "8px", maxWidth: "600px" }}>
       <span style={{ fontWeight: "bold", color: "#FFD700" }}>95%</span> of users feel more confident about their finances after using Camlet.
     </li>
+
     <li style={{ backgroundColor: "rgba(0, 0, 0, 0.3)", padding: "15px 20px", borderRadius: "8px", maxWidth: "600px" }}>
       Camlet students save <span style={{ fontWeight: "bold", color: "#FFD700" }}>20%</span> more within the first 3 months of using it.
     </li>
+
     <li style={{ backgroundColor: "rgba(0, 0, 0, 0.3)", padding: "15px 20px", borderRadius: "8px", maxWidth: "600px" }}>
       <span style={{ fontWeight: "bold", color: "#FFD700" }}>84%</span> find Camlet’s bill-splitting feature a game-changer for roommate harmony.
     </li>
+    
   </ul>
 </section>
 
