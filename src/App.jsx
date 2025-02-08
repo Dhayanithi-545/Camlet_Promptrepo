@@ -6,6 +6,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Navbar from "./components/Navbar";
 import Settings from "./pages/settings";
+import Dashboard from "./pages/dashboard";
 import '../src/index.css'
 
 

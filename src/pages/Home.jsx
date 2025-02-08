@@ -14,7 +14,6 @@ const Home = () => {
     <div className="home-container">
       <header className="hero-section">
         <div className="hero-content">
-        
             <h1>Camlet has been reimagined with credit karma</h1>
             <p>Reviewing transactions, monitoring your spending and tracking your net worth now have a new home.</p>
             <button className="cta-button">Check this out</button>

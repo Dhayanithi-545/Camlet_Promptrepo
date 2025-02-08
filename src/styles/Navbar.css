@@ -3,7 +3,7 @@
   background-color: black;
 }
 .navbar {
-  position: fixed; /* Fixes navbar at the top */
+  position: fixed;
   top: 0;
   left: 0;
   width: 97%;
@@ -11,13 +11,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 1000; /* Ensures navbar stays above other elements */
+  z-index: 1000; 
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Optional shadow for better visibility */
 }
 
 
 body {
-  padding-top: 100px; /* Adjust according to navbar height to prevent content from being hidden */
+  padding-top: 100px;
 }
 
 

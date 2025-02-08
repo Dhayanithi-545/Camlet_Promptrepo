@@ -4,7 +4,7 @@ import logo from "../assets/logo.png"
 
 const Navbar = () => {
   return (
-    <nav className="navbar">
+    <nav className="navbar joe">
       <div className="logo">
         <img src={logo} alt="Camlet Logo" />
       </div>
