@@ -18,7 +18,7 @@ function App() {
         <Route path="/about-us" element={<About />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/dash" element={<Dashboard />} /> {/* ✅ Add this */}
+        <Route path="/dashboard" element={<Dashboard />} /> {/* ✅ Add this */}
         <Route path="/settings" element={<Settings />} />
       </Routes>
     </BrowserRouter>
