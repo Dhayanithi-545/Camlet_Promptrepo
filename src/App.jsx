@@ -6,8 +6,9 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Navbar from "./components/Navbar";
 import Settings from "./pages/settings";
-
+import React from "react";
 import '../src/index.css'
+import Dashboard from "./pages/dashboard";
 
 function App() {
   return (

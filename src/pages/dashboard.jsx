@@ -1,48 +1,82 @@
-import React from "react";
+import React, { useState } from "react";
+import "../styles/Dashboard.css";
+import { FaMoneyBill, FaShoppingCart, FaPiggyBank, FaComments, FaPlus } from "react-icons/fa";
+import Bot from "../components/Bot";
 
 const Dashboard = () => {
+  const [expenses, setExpenses] = useState([
+    "Room Rent - 3000",
+    "Food - 2500",
+    "Water - 300",
+  ]);
+  const [newExpense, setNewExpense] = useState("");
+  const [showInput, setShowInput] = useState(false);
+
+  const handleAddExpense = () => {
+    if (newExpense.trim()) {
+      setExpenses([...expenses, newExpense]);
+      setNewExpense("");
+      setShowInput(false);
+    }
+  };
+
   return (
-    <div style={{ fontFamily: "Arial, sans-serif", backgroundColor: "#0c0b1d", color: "white", padding: "20px" }}>
-      <header style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        <h1 style={{ color: "#80ff80" }}>Camlet</h1>
-        <nav>
-          <a href="#" style={{ margin: "0 10px", color: "white" }}>Dashboard</a>
-          <a href="#" style={{ margin: "0 10px", color: "white" }}>Transactions</a>
-          <a href="#" style={{ margin: "0 10px", color: "white" }}>Overview</a>
-          <a href="#" style={{ margin: "0 10px", color: "white" }}>Settings</a>
+    <div className="dashboard-container">
+      <header className="dashboard-header">
+        <h1 className="logo">Camlet</h1>
+        <nav className="dashboard-nav">
+          <a href="#">Dashboard</a>
+          <a href="#">Transactions</a>
+          <a href="#">Overview</a>
+          <a href="#">Settings</a>
         </nav>
       </header>
       
-      <h2>Dashboard</h2>
-      <p>Monitor your Activities</p>
+      <h2 className="dashboard-title">Dashboard</h2>
+      <p className="dashboard-subtitle">Monitor your Activities</p>
       
-      <div style={{ display: "flex", justifyContent: "space-between", marginTop: "20px" }}>
-        <div style={{ backgroundColor: "#292144", padding: "20px", borderRadius: "10px" }}>
+      <div className="dashboard-stats">
+        <div className="stat-card">
+          <FaMoneyBill className="stat-icon" />
           <h3>Total Money</h3>
           <p>5,000</p>
         </div>
-        <div style={{ backgroundColor: "#292144", padding: "20px", borderRadius: "10px" }}>
+        <div className="stat-card">
+          <FaShoppingCart className="stat-icon" />
           <h3>Money Spent</h3>
           <p>200</p>
         </div>
-        <div style={{ backgroundColor: "#292144", padding: "20px", borderRadius: "10px" }}>
+        <div className="stat-card">
+          <FaPiggyBank className="stat-icon" />
           <h3>Saving</h3>
           <p>1500</p>
         </div>
       </div>
       
-      <div style={{ marginTop: "20px", backgroundColor: "#1c1a30", padding: "20px", borderRadius: "10px" }}>
-        <h3>Vital Expenses</h3>
+      <div className="vital-expenses">
+        <h3>Vital Expenses <FaPlus className="plus-icon" onClick={() => setShowInput(true)} /></h3>
         <ul>
-          <li>Room Rent - 3000</li>
-          <li>Food - 2500</li>
-          <li>Water - 300</li>
+          {expenses.map((expense, index) => (
+            <li key={index}>{expense}</li>
+          ))}
         </ul>
+        {showInput && (
+          <div className="expense-input">
+            <input 
+              type="text" 
+              value={newExpense} 
+              onChange={(e) => setNewExpense(e.target.value)}
+              placeholder="Enter expense"
+            />
+            <button onClick={handleAddExpense}>Add</button>
+          </div>
+        )}
       </div>
       
-      <div style={{ marginTop: "20px", backgroundColor: "#25203a", padding: "20px", borderRadius: "10px" }}>
+      <div className="bbot-chat">
+        <FaComments className="chat-icon" />
         <h3>BBOT Chat</h3>
-        <p>"From the past 5 days you are drinking tea. Do you need to buy a Teddy Bear for your girl friend?"</p>
+        <Bot />
       </div>
     </div>
   );
